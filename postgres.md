@@ -41,3 +41,8 @@ delete from snippets where keyword='insert';
 
 install psycopg2:
 sudo python3 -m pip install psycopg2
+
+db maintenance:
+dropdb {{name}} (deletes)
+createdb {{name}} (creates)
+(and then source the sql file)
