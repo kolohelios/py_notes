@@ -4,3 +4,5 @@ sudo apt-get update
 sudo apt-get install python3.4-venv
 python3 -m venv env
 source env/bin/activate
+
+you can deactivate to end the virtualenv session

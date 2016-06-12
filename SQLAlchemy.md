@@ -91,7 +91,7 @@ print(passport.owner.name)
 *the backref="owner" allows us to access the passport through the person but also the person through the passport*
 
 ## one-to-many
-*a one-to-many relationship is created in the same way as a one-to-one except that the userlist=False is omitted*
+*a one-to-many relationship is created in the same way as a one-to-one except that the uselist=False is omitted*
 
 fender = Manufacturer(name="Fender")
 strat = Guitar(name="Stratocaster", manufacturer=fender)

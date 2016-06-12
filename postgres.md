@@ -46,3 +46,5 @@ db maintenance:
 dropdb {{name}} (deletes)
 createdb {{name}} (creates)
 (and then source the sql file)
+
+pg_dump - dumps data to a SQL file
