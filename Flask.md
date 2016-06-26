@@ -19,7 +19,7 @@ Jinja only supports *if* and *for* statements; endif and endfor take the place o
 
 inheritance works through {% extends %} and {% block %}
 
-super blocks: {{ super() }} - renders the parent's template block before the child's template block (and super() goes in the child template)
+super blocks: {{ super() }} - renders the parent's template block (before) the child's template block (and super() goes in the child template); allows code from the parent to be used in multiple children templates
 
 macros are included at the beginning of a base template like this:
 {% from "macros.html" import nav_link with context %}
@@ -53,4 +53,29 @@ the custom filter is used like any of the standard filters:
 
 and with this example, we have to make sure we define current_time and pass it to the render_template call, like with
 current_time = datetime.datetime.now()
+
+from . import views
+*imports additional modules from the current package only - shorthand for blog.views, for example*
+
+from flask.ext.script import Manager
+http://flask-script.readthedocs.io/en/latest/
+*Flask-Script defines tasks that help manage ones application*
+
+@manager.command
+^^^^ decorator for adding a command to a Flask-Script
+
+Flask.config.from_object
+It takes a string containing the path to a file, dictionary or class, and uses the variables in the corresponding object to populate the config object
+really: it allows us to have discrete configurations for a single app
+http://flask.pocoo.org/docs/0.11/config/
+
+Jinga - use_for:
+You can use the url_for function to generate the href tag. For example <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"> would link to the file static/css/main.css.
+
+Flask.template_filter
+decorator for pipe filters
+
+Jinja safe filter allows unescaped HTML and should be used judiciously
+
+
 
