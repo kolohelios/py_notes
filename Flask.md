@@ -77,5 +77,34 @@ decorator for pipe filters
 
 Jinja safe filter allows unescaped HTML and should be used judiciously
 
+UserMixin class from Flask-Login allows us to use methods that are related to users
 
+Flask-Login's user_loader decorator attaches the user to a session after loading them from the database
 
+the flash function caches messages to display at the next page load - it's a queue, basically
+
+@login_required decorator will provide the requested resource only if the user is logged in
+
+#Flask migrations - database migrations for the win!#
+to add to manage.py
+```
+from flask.ext.migrate import Migrate, MigrateCommand
+from blog.database import Base
+
+class DB(object):
+    def __init__(self, metadata):
+        self.metadata = metadata
+
+migrate = Migrate(app, DB(Base.metadata))
+manager.add_command('db', MigrateCommand)
+```
+
+then python manage.py db init to initialize the migration scripts
+make changes to models
+then run python manage.py db migrate
+check the resulting script in /migrations/versions
+if it looks good, run python manage.py db upgrade
+
+if things get screwed up, run python manage.py db downgrade
+
+session_transaction stores the HTTP ession variable so we can add and remove items from the session
